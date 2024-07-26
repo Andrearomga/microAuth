@@ -10,6 +10,8 @@ COPY package*.json ./
 # Instala las dependencias
 RUN npm install
 
+RUN npm install -g nodemon
+
 # Copia el resto de los archivos de la aplicación
 COPY . .
 
@@ -18,3 +20,4 @@ EXPOSE 7000
 
 # Define el comando para ejecutar la aplicación en modo desarrollo
 CMD ["npm", "run", "dev"]
+

@@ -6,7 +6,7 @@ export class ExternalApiAdapterUser implements IExternalApiUsers {
     private baseUrl: string;
 
     constructor() {
-        this.baseUrl = "http://192.168.0.24:3000/api-ecomerce/users";
+        this.baseUrl = "http://10.10.0.75:3000/api-ecomerce/users";
     }
 
     async validateToken(token: string): Promise<boolean> {
