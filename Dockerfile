@@ -10,7 +10,8 @@ COPY package*.json ./
 # Instala las dependencias
 RUN npm install
 
-RUN npm install -g nodemon
+
+RUN npm install -g ts-node typescript nodemon
 
 # Copia el resto de los archivos de la aplicación
 COPY . .
