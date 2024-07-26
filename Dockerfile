@@ -1,24 +1,15 @@
-# Usa una imagen base de Node.js
-FROM node:18.20.4-alpine
+FROM node:20.13.0-alpine
 
-# Establece el directorio de trabajo en el contenedor
+RUN mkdir /app
+
 WORKDIR /app
 
-# Copia los archivos package.json y package-lock.json
-COPY package*.json ./
-
-# Instala las dependencias
-RUN npm install
-
-
-RUN npm install -g ts-node typescript nodemon
-
-# Copia el resto de los archivos de la aplicación
 COPY . .
+RUN rm -rf node_modules package-lock.json
+RUN npm install
+RUN npm install -g nodemon ts-node ts-node-dev  typescript
+RUN npm install ts-node-dev --save-dev
 
-# Expone el puerto que usará la aplicación
 EXPOSE 7000
 
-# Define el comando para ejecutar la aplicación en modo desarrollo
-CMD ["npm", "run", "dev"]
-
+CMD [ "npm", "run", "dev" ]
